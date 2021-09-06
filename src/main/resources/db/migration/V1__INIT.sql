@@ -1,0 +1,1 @@
+create table member (id bigint auto_increment, address varchar(255), addressDetail varchar(255), age integer not null, email varchar(255), name varchar(255), nickname varchar(255), password varchar(20), tel varchar(255), zipCode varchar(5), primary key (id))

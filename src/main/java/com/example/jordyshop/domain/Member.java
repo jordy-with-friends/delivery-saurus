@@ -12,8 +12,6 @@ import javax.persistence.Table;
 
 import lombok.NoArgsConstructor;
 
-import com.sun.istack.NotNull;
-
 @Entity
 @Table(name = "member")
 @NoArgsConstructor
