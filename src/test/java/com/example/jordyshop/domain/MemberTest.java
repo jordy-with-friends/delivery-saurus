@@ -4,11 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 
-@SpringBootTest
-@Rollback
 class MemberTest {
     @DisplayName("생성")
     @Test
@@ -19,7 +15,7 @@ class MemberTest {
                 "jordy",
                 "jordy@firends.com",
                 Status.AUTHORIZING,
-                Rank.IRON,
+                Rank.DIAMOND,
                 "05552",
                 "서울시 영등포구 영등포동 포동길 12",
                 "101호",
