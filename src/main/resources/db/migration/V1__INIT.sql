@@ -1,4 +1,4 @@
-create table member
+CREATE TABLE member
 (
     id             BIGINT AUTO_INCREMENT,
     address        VARCHAR(255),
