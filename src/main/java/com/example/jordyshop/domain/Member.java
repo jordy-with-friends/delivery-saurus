@@ -21,7 +21,8 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @Embedded
+    private Name name;
 
     private String nickname;
 
@@ -52,7 +53,7 @@ public class Member {
     @Column(length = 20)
     private String password;
 
-    public Member(String name, String nickname, String email, Status status, Rank rank, String zipCode, String address, String addressDetail, String tel, Gender gender, int age, String password) {
+    public Member(Name name, String nickname, String email, Status status, Rank rank, String zipCode, String address, String addressDetail, String tel, Gender gender, int age, String password) {
         this.name = name;
         this.nickname = nickname;
         this.email = email;

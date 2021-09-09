@@ -11,7 +11,7 @@ class MemberTest {
     void create() {
         // given
         Member member = new Member(
-                "죠르디",
+                new Name("죠르디"),
                 "jordy",
                 "jordy@firends.com",
                 Status.AUTHORIZING,
