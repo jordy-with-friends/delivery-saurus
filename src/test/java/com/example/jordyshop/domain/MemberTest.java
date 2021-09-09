@@ -12,7 +12,7 @@ class MemberTest {
         // given
         Member member = new Member(
                 new Name("죠르디"),
-                "jordy",
+                new Nickname("jordy"),
                 "jordy@firends.com",
                 Status.AUTHORIZING,
                 Rank.DIAMOND,

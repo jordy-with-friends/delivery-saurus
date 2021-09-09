@@ -7,19 +7,20 @@ import lombok.NoArgsConstructor;
 
 @Embeddable
 @NoArgsConstructor
-public class Name {
-    public static final int NAME_MAX_LENGTH = 5;
+public class Nickname {
+    private static final int NICKNAME_MIN_LENGTH = 2;
+    private static final int NICKNAME_MAX_LENGTH = 20;
 
-    @Column(name = "name")
+    @Column(name = "nickname")
     private String value;
 
-    public Name(String value) {
+    public Nickname(String value) {
         validate(value);
         this.value = value;
     }
 
     private void validate(String value) {
-        if (value.length() > NAME_MAX_LENGTH) {
+        if (value.length() < NICKNAME_MIN_LENGTH || value.length() > NICKNAME_MAX_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
