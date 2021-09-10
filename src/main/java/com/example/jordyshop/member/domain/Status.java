@@ -1,4 +1,4 @@
-package com.example.jordyshop.domain;
+package com.example.jordyshop.member.domain;
 
 import javax.persistence.Embeddable;
 
