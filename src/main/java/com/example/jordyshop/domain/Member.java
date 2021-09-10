@@ -42,7 +42,8 @@ public class Member {
 
     private String addressDetail;
 
-    private String tel;
+    @Embedded
+    private Tel tel;
 
     @Embedded
     private Gender gender;
@@ -52,7 +53,7 @@ public class Member {
     @Column(length = 20)
     private String password;
 
-    public Member(String name, String nickname, String email, Status status, Rank rank, String zipCode, String address, String addressDetail, String tel, Gender gender, int age, String password) {
+    public Member(String name, String nickname, String email, Status status, Rank rank, String zipCode, String address, String addressDetail, Tel tel, Gender gender, int age, String password) {
         this.name = name;
         this.nickname = nickname;
         this.email = email;
