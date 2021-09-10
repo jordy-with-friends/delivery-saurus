@@ -21,7 +21,7 @@ class MemberTest {
                 "101호",
                 new Tel("01015251525"),
                 Gender.M,
-                15,
+                new Age(15),
                 "password"
         );
         // when
