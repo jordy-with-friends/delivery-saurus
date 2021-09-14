@@ -12,7 +12,7 @@ class AddressTest {
     @Test
     void create() {
         // given
-        Address address = new Address("서울시 송파구 여의도동 15-25");
+        Address address = new Address("서울시 송파구 여의도동 15-25", "1525호");
         // when
         // then
         assertThat(address).isNotNull();

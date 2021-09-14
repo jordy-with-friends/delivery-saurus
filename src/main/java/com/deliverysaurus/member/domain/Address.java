@@ -10,9 +10,13 @@ import lombok.NoArgsConstructor;
 public class Address {
 
     @Column(name = "address")
-    private String contents;
+    private String address;
 
-    public Address(String contents) {
-        this.contents = contents;
+    @Column(name = "address_detail")
+    private String detail;
+
+    public Address(String address, String detail) {
+        this.address = address;
+        this.detail = detail;
     }
 }
