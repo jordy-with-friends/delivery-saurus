@@ -1,4 +1,4 @@
-package com.example.jordyshop.member.domain;
+package com.deliverysaurus.member.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

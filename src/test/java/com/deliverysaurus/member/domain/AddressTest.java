@@ -1,19 +1,20 @@
-package com.example.jordyshop.member.domain;
+package com.deliverysaurus.member.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class AddressDetailTest {
+class AddressTest {
 
     @DisplayName("생성")
     @Test
     void create() {
         // given
-        AddressDetail addressDetail = new AddressDetail("1525호");
+        Address address = new Address("서울시 송파구 여의도동 15-25");
         // when
         // then
-        assertThat(addressDetail).isNotNull();
+        assertThat(address).isNotNull();
     }
 }
