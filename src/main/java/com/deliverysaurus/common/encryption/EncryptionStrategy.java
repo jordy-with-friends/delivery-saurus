@@ -17,7 +17,7 @@ public enum EncryptionStrategy {
 
         @Override
         public boolean isMatch(String text, String hashed) throws Exception {
-            return text.equals(new AES256().decrypt(text));
+            return text.equals(new AES256().decrypt(hashed));
         }
     },
     BYCRYPT {
