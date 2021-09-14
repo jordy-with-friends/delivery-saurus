@@ -28,7 +28,7 @@ public enum EncryptionStrategy {
 
         @Override
         public String decrypt(String text) {
-            throw new RuntimeException();
+            throw new RuntimeException("Bcrypt는 복호화가 불가합니다.");
         }
 
         @Override
