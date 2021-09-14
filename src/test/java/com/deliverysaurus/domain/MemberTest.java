@@ -1,4 +1,4 @@
-package com.example.jordyshop.domain;
+package com.deliverysaurus.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -11,8 +11,8 @@ class MemberTest {
     void create() {
         // given
         Member member = new Member(
-                "죠르디",
-                "jordy",
+                new Name("죠르디"),
+                new Nickname("jordy"),
                 "jordy@firends.com",
                 Status.AUTHORIZING,
                 Rank.DIAMOND,
