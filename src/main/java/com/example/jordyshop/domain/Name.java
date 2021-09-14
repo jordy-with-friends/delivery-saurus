@@ -8,18 +8,18 @@ import lombok.NoArgsConstructor;
 @Embeddable
 @NoArgsConstructor
 public class Name {
-    public static final int NAME_MAX_LENGTH = 5;
+    private static final int NAME_MAX_LENGTH = 5;
 
     @Column(name = "name")
-    private String value;
+    private String name;
 
-    public Name(String value) {
-        validate(value);
-        this.value = value;
+    public Name(String name) {
+        validate(name);
+        this.name = name;
     }
 
-    private void validate(String value) {
-        if (value.length() > NAME_MAX_LENGTH) {
+    private void validate(String name) {
+        if (name.length() > NAME_MAX_LENGTH) {
             throw new IllegalArgumentException();
         }
     }
