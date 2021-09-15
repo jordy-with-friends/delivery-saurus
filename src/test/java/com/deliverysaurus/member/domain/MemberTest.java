@@ -18,9 +18,9 @@ class MemberTest {
                 Rank.DIAMOND,
                 "05552",
                 new Address("서울시 영등포구 영등포동 포동길 12", "101호"),
-                "010-1525-1525",
+                new Tel("01015251525"),
                 Gender.M,
-                15,
+                new Age(15),
                 "password"
         );
         // when

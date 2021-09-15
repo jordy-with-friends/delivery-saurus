@@ -44,17 +44,19 @@ public class Member {
     @Embedded
     private Address address;
 
-    private String tel;
+    @Embedded
+    private Tel tel;
 
     @Embedded
     private Gender gender;
 
-    private int age;
+    @Embedded
+    private Age age;
 
     @Column(length = 20)
     private String password;
 
-    public Member(Name name, Nickname nickname, String email, Status status, Rank rank, String zipCode, Address address, String tel, Gender gender, int age, String password) {
+    public Member(Name name, Nickname nickname, String email, Status status, Rank rank, String zipCode, Address address, Tel tel, Gender gender, Age age, String password) {
         this.name = name;
         this.nickname = nickname;
         this.email = email;

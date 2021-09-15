@@ -5,10 +5,11 @@ import java.util.regex.Pattern;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @Embeddable
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Tel {
     private static final int TEL_MIN_LENGTH = 9;
     public static final String NUMBER_REG_EXP = "^[0-9]+$";
