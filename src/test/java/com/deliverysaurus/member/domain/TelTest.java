@@ -18,7 +18,7 @@ class TelTest {
         assertThat(tel).isNotNull();
     }
 
-    @DisplayName("생성 실패 - 짧은 번호")
+    @DisplayName("생성 실패 - 9자 미만의 짧은 번호")
     @Test
     void createFailedByLength() {
         // given
