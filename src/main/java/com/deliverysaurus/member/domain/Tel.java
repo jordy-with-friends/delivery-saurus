@@ -1,4 +1,4 @@
-package com.example.jordyshop.domain;
+package com.deliverysaurus.member.domain;
 
 import java.util.regex.Pattern;
 
