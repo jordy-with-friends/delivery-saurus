@@ -1,4 +1,4 @@
-package com.example.jordyshop.domain;
+package com.deliverysaurus.config;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package com.deliverysaurus.domain;
+package com.deliverysaurus.member.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -10,11 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "member")
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
 
     @Id
@@ -40,9 +41,8 @@ public class Member {
     @Column(length = 5)
     private String zipCode;
 
-    private String address;
-
-    private String addressDetail;
+    @Embedded
+    private Address address;
 
     private String tel;
 
@@ -54,7 +54,7 @@ public class Member {
     @Column(length = 20)
     private String password;
 
-    public Member(Name name, Nickname nickname, String email, Status status, Rank rank, String zipCode, String address, String addressDetail, String tel, Gender gender, int age, String password) {
+    public Member(Name name, Nickname nickname, String email, Status status, Rank rank, String zipCode, Address address, String tel, Gender gender, int age, String password) {
         this.name = name;
         this.nickname = nickname;
         this.email = email;
@@ -62,7 +62,6 @@ public class Member {
         this.rank = rank;
         this.zipCode = zipCode;
         this.address = address;
-        this.addressDetail = addressDetail;
         this.tel = tel;
         this.gender = gender;
         this.age = age;

@@ -1,4 +1,4 @@
-package com.deliverysaurus.domain;
+package com.deliverysaurus.member.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
