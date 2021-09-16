@@ -1,5 +1,7 @@
 package com.deliverysaurus.member.ui;
 
+import java.net.URI;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +25,7 @@ public class MemberController {
     @PostMapping(value = "/members")
     @ResponseBody
     public ResponseEntity<ResponseBody> addMember(MemberDto memberDto) {
-        memberService.addMember(memberDto);
-        return ResponseEntity.ok().build();
+        Member member = memberService.addMember(memberDto);
+        return ResponseEntity.created(URI.create("/members/" + member.getId())).build();
     }
 }
