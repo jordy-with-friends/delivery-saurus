@@ -1,5 +1,7 @@
 package com.deliverysaurus.member.domain;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -23,5 +25,18 @@ public class Name {
         if (name.length() > NAME_MAX_LENGTH) {
             throw new IllegalArgumentException();
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Name name1 = (Name) o;
+        return Objects.equals(name, name1.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

@@ -1,5 +1,7 @@
 package com.deliverysaurus.member.domain;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;

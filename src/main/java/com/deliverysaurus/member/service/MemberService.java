@@ -32,7 +32,7 @@ public class MemberService {
                 memberDto.getZipCode(),
                 new Address(memberDto.getAddress(), memberDto.getAddressDetail()),
                 new Tel(memberDto.getTel()),
-                Gender.toGender(memberDto.getGender()),
+                Gender.valueOf(memberDto.getGender()),
                 new Age(memberDto.getAge()),
                 memberDto.getPassword()
         );
