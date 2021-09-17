@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 import com.deliverysaurus.member.domain.Member;
 import com.deliverysaurus.member.dto.MemberDto;
-import com.deliverysaurus.member.service.MemberService;
+import com.deliverysaurus.member.application.MemberService;
 
 @RestController
 @RequiredArgsConstructor

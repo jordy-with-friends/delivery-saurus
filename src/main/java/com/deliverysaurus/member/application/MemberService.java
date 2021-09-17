@@ -1,4 +1,4 @@
-package com.deliverysaurus.member.service;
+package com.deliverysaurus.member.application;
 
 import org.springframework.stereotype.Service;
 
