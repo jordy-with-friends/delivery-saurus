@@ -24,7 +24,9 @@ class TelTest {
         // given
         // when
         // then
-        assertThatThrownBy(() -> new Tel("010"))
+        assertThatThrownBy(() -> new Tel(""))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Tel("01015251"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 

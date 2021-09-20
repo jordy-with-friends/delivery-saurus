@@ -79,7 +79,6 @@ class MemberServiceTest {
         Member actual = memberService.addMember(memberDto);
 
         // then
-        assertThat(actual).isNotNull();
         assertThat(actual.getName()).isEqualTo(new Name(NAME));
     }
 }
