@@ -13,8 +13,7 @@ class MemberTest {
         Member member = new Member(
                 new Name("죠르디"),
                 new Nickname("jordy"),
-                "jordy@firends.com",
-                Status.AUTHORIZING,
+                MemberStatus.AUTHORIZING,
                 Rank.DIAMOND,
                 "05552",
                 new Address("서울시 영등포구 영등포동 포동길 12", "101호"),

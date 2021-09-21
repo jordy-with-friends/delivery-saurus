@@ -11,7 +11,7 @@ import com.deliverysaurus.member.domain.Member;
 import com.deliverysaurus.member.domain.Name;
 import com.deliverysaurus.member.domain.Nickname;
 import com.deliverysaurus.member.domain.Rank;
-import com.deliverysaurus.member.domain.Status;
+import com.deliverysaurus.member.domain.MemberStatus;
 import com.deliverysaurus.member.domain.Tel;
 import com.deliverysaurus.member.dto.MemberDto;
 import com.deliverysaurus.member.repository.MemberRepository;
@@ -26,8 +26,7 @@ public class MemberService {
         Member member = new Member(
                 new Name(memberDto.getName()),
                 new Nickname(memberDto.getNickname()),
-                memberDto.getEmail(),
-                Status.AUTHORIZING,
+                MemberStatus.AUTHORIZING,
                 Rank.IRON,
                 memberDto.getZipCode(),
                 new Address(memberDto.getAddress(), memberDto.getAddressDetail()),
@@ -36,6 +35,8 @@ public class MemberService {
                 new Age(memberDto.getAge()),
                 memberDto.getPassword()
         );
+
+        //TODO 이메일 add
 
         return memberRepository.save(member);
     }

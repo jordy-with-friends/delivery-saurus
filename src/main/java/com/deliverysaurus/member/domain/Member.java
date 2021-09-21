@@ -1,7 +1,5 @@
 package com.deliverysaurus.member.domain;
 
-import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -32,11 +30,9 @@ public class Member {
     @Embedded
     private Nickname nickname;
 
-    private String email;
-
     @Embedded
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private MemberStatus status;
 
     @Embedded
     @Enumerated(EnumType.STRING)
@@ -60,10 +56,9 @@ public class Member {
     @Column(length = 20)
     private String password;
 
-    public Member(Name name, Nickname nickname, String email, Status status, Rank rank, String zipCode, Address address, Tel tel, Gender gender, Age age, String password) {
+    public Member(Name name, Nickname nickname, MemberStatus status, Rank rank, String zipCode, Address address, Tel tel, Gender gender, Age age, String password) {
         this.name = name;
         this.nickname = nickname;
-        this.email = email;
         this.status = status;
         this.rank = rank;
         this.zipCode = zipCode;
