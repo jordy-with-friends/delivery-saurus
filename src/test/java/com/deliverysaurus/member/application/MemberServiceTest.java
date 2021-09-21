@@ -21,6 +21,7 @@ import com.deliverysaurus.member.domain.Rank;
 import com.deliverysaurus.member.domain.MemberStatus;
 import com.deliverysaurus.member.domain.Tel;
 import com.deliverysaurus.member.dto.MemberDto;
+import com.deliverysaurus.member.repository.EmailRepository;
 import com.deliverysaurus.member.repository.MemberRepository;
 
 @ExtendWith(MockitoExtension.class)
@@ -28,7 +29,6 @@ class MemberServiceTest {
 
     private static final String NAME = "죠르디";
     private static final String NICKNAME = "jordy";
-    private static final String EMAIL = "jordy@firends.com";
     private static final String ZIP_CODE = "05552";
     private static final String ADDRESS = "서울시 영등포구 영등포동 포동길 12";
     private static final String ADDRESS_DETAIL = "101호";
@@ -39,6 +39,9 @@ class MemberServiceTest {
 
     @Mock
     private MemberRepository memberRepository;
+
+    @Mock
+    private EmailRepository emailRepository;
 
     @InjectMocks
     private MemberService memberService;
