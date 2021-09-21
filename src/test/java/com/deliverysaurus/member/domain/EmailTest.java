@@ -16,14 +16,13 @@ class EmailTest {
     private static final String ADDRESS = "서울시 영등포구 영등포동 포동길 12";
     private static final String ADDRESS_DETAIL = "101호";
     private static final String TEL = "01015251525";
-    private static final String GENDER = "M";
     private static final int AGE = 15;
     private static final String PASSWORD = "password";
 
 
     @DisplayName("생성")
     @Test
-    void create() {
+    void 생성() {
         // given
         Member member = new Member(
                 new Name(NAME),

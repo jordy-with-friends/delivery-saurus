@@ -1,31 +1,28 @@
-package com.deliverysaurus.member.application;
+package com.deliverysaurus.member.integration;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+
+import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.deliverysaurus.member.domain.Address;
-import com.deliverysaurus.member.domain.Age;
-import com.deliverysaurus.member.domain.Gender;
+import com.deliverysaurus.member.application.MemberService;
+import com.deliverysaurus.member.domain.Email;
 import com.deliverysaurus.member.domain.Member;
-import com.deliverysaurus.member.domain.Name;
 import com.deliverysaurus.member.domain.Nickname;
-import com.deliverysaurus.member.domain.Rank;
-import com.deliverysaurus.member.domain.MemberStatus;
-import com.deliverysaurus.member.domain.Tel;
 import com.deliverysaurus.member.dto.MemberDto;
 import com.deliverysaurus.member.repository.EmailRepository;
 import com.deliverysaurus.member.repository.MemberRepository;
 
-@ExtendWith(MockitoExtension.class)
-class MemberServiceTest {
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
+@Transactional
+public class MemberTest {
 
     private static final String NAME = "죠르디";
     private static final String NICKNAME = "jordy";
@@ -38,18 +35,18 @@ class MemberServiceTest {
     private static final int AGE = 15;
     private static final String PASSWORD = "password";
 
-    @Mock
+    @Autowired
     private MemberRepository memberRepository;
 
-    @Mock
+    @Autowired
     private EmailRepository emailRepository;
 
-    @InjectMocks
+    @Autowired
     private MemberService memberService;
 
-    @DisplayName("유저 생성 테스트")
+    @DisplayName("회원 가입 결과")
     @Test
-    void 유저_생성_테스트() {
+    void 회원_가입_결과() {
         // given
         MemberDto memberDto = MemberDto.builder()
                 .name(NAME)
@@ -64,24 +61,12 @@ class MemberServiceTest {
                 .password(PASSWORD)
                 .build();
 
-        Member member = new Member(
-                new Name(NAME),
-                new Nickname(NICKNAME),
-                MemberStatus.AUTHORIZING,
-                Rank.DIAMOND,
-                ZIP_CODE,
-                new Address(ADDRESS, ADDRESS_DETAIL),
-                new Tel(TEL),
-                Gender.M,
-                new Age(AGE),
-                PASSWORD
-        );
-
         // when
-        when(memberRepository.save(any())).thenReturn(member);
-        Member actual = memberService.addMember(memberDto);
+        memberService.addMember(memberDto);
+        Member member = memberRepository.findMemberByNickname(new Nickname(NICKNAME));
+        Email email = emailRepository.findEmailByMember(member);
 
         // then
-        assertThat(actual.getName()).isEqualTo(new Name(NAME));
+        assertThat(email.getEmail()).isEqualTo(EMAIL);
     }
 }
