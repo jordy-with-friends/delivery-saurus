@@ -1,6 +1,7 @@
 package com.deliverysaurus.member.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static com.deliverysaurus.member.fixture.MemberFixture.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,17 +12,17 @@ class MemberTest {
     void create() {
         // given
         Member member = new Member(
-                new Name("죠르디"),
-                new Nickname("jordy"),
-                "jordy@firends.com",
+                new Name(NAME),
+                new Nickname(NICKNAME),
+                EMAIL,
                 Status.AUTHORIZING,
                 Rank.DIAMOND,
-                "05552",
-                new Address("서울시 영등포구 영등포동 포동길 12", "101호"),
-                new Tel("01015251525"),
+                ZIP_CODE,
+                new Address(ADDRESS, ADDRESS_DETAIL),
+                new Tel(TEL),
                 Gender.M,
-                new Age(15),
-                "password"
+                new Age(AGE),
+                PASSWORD
         );
         // when
         // then
