@@ -3,7 +3,7 @@ package com.deliverysaurus.member.dto;
 import lombok.Builder;
 import lombok.Getter;
 
-import com.deliverysaurus.member.domain.Status;
+import com.deliverysaurus.member.domain.MemberStatus;
 
 @Getter
 @Builder
@@ -11,7 +11,7 @@ public class MemberDto {
     private String name;
     private String nickname;
     private String email;
-    private Status status;
+    private MemberStatus memberStatus;
     private String zipCode;
     private String address;
     private String addressDetail;

@@ -19,9 +19,10 @@ import com.deliverysaurus.member.domain.Member;
 import com.deliverysaurus.member.domain.Name;
 import com.deliverysaurus.member.domain.Nickname;
 import com.deliverysaurus.member.domain.Rank;
-import com.deliverysaurus.member.domain.Status;
+import com.deliverysaurus.member.domain.MemberStatus;
 import com.deliverysaurus.member.domain.Tel;
 import com.deliverysaurus.member.dto.MemberDto;
+import com.deliverysaurus.member.repository.EmailRepository;
 import com.deliverysaurus.member.repository.MemberRepository;
 
 @ExtendWith(MockitoExtension.class)
@@ -29,6 +30,9 @@ class MemberServiceTest {
 
     @Mock
     private MemberRepository memberRepository;
+
+    @Mock
+    private EmailRepository emailRepository;
 
     @InjectMocks
     private MemberService memberService;
@@ -53,8 +57,7 @@ class MemberServiceTest {
         Member member = new Member(
                 new Name(NAME),
                 new Nickname(NICKNAME),
-                EMAIL,
-                Status.AUTHORIZING,
+                MemberStatus.AUTHORIZING,
                 Rank.DIAMOND,
                 ZIP_CODE,
                 new Address(ADDRESS, ADDRESS_DETAIL),
