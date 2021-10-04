@@ -1,5 +1,6 @@
 package com.deliverysaurus.member.application;
 
+import static com.deliverysaurus.member.fixture.MemberFixture.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -26,17 +27,6 @@ import com.deliverysaurus.member.repository.MemberRepository;
 
 @ExtendWith(MockitoExtension.class)
 class MemberServiceTest {
-
-    private static final String NAME = "죠르디";
-    private static final String NICKNAME = "jordy";
-    private static final String EMAIL = "jordy@firends.com";
-    private static final String ZIP_CODE = "05552";
-    private static final String ADDRESS = "서울시 영등포구 영등포동 포동길 12";
-    private static final String ADDRESS_DETAIL = "101호";
-    private static final String TEL = "01015251525";
-    private static final String GENDER = "M";
-    private static final int AGE = 15;
-    private static final String PASSWORD = "password";
 
     @Mock
     private MemberRepository memberRepository;
