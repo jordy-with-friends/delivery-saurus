@@ -2,6 +2,7 @@ package com.deliverysaurus.member.domain;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -31,6 +32,9 @@ public class Email {
 
     private String email;
 
+    @Embedded
+    private EmailAuthTryCount tryCount;
+
     @Enumerated(EnumType.STRING)
     private EmailStatus emailStatus;
 
@@ -42,6 +46,7 @@ public class Email {
         this.member = member;
         this.email = email;
         this.emailStatus = EmailStatus.RESERVATION;
+        this.tryCount = new EmailAuthTryCount(0);
         this.sendDate = sendDate;
         this.authDate = authDate;
     }
