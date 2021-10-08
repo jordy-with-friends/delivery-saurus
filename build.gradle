@@ -31,6 +31,7 @@ dependencies {
 	implementation 'org.flywaydb:flyway-core'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
+	implementation group: 'org.ehcache', name: 'ehcache', version: '3.6.1'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'mysql:mysql-connector-java'
