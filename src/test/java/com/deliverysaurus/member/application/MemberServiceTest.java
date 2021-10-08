@@ -74,4 +74,14 @@ class MemberServiceTest {
         // then
         assertThat(actual.getName()).isEqualTo(new Name(NAME));
     }
+
+    @DisplayName("회원 가입 이메일 인증")
+    @Test
+    void 회원_가입_이메일_인증() {
+        // given
+
+        // when
+
+        // then
+    }
 }

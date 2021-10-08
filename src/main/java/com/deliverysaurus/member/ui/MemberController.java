@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 import com.deliverysaurus.member.domain.Member;
+import com.deliverysaurus.member.dto.EmailAuthDto;
 import com.deliverysaurus.member.dto.MemberDto;
 import com.deliverysaurus.member.application.MemberService;
 
@@ -25,7 +26,15 @@ public class MemberController {
     @PostMapping(value = "/members")
     @ResponseBody
     public ResponseEntity<ResponseBody> addMember(MemberDto memberDto) {
-        Member member = memberService.addMember(memberDto);
+        memberService.addMember(memberDto);
+        return ResponseEntity.ok().build();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PostMapping(value = "/members/authorization")
+    @ResponseBody
+    public ResponseEntity<ResponseBody> authEmail(EmailAuthDto emailAuthDto) {
+        Member member = memberService.authEmail(emailAuthDto.getAuthNumber());
         return ResponseEntity.created(URI.create("/members/" + member.getId())).build();
     }
 }

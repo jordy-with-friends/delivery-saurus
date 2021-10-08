@@ -49,6 +49,14 @@ public class MemberService {
                 LocalDateTime.now()
         ));
 
+        // 이메일 인증 번호를 생성 후 저장
+
         return memberRepository.save(member);
+    }
+
+    public Member authEmail(Long authNumber) {
+        // 이메일 인증 번호를 조회
+        // authNumber와 같은지 비교
+        return null;
     }
 }
