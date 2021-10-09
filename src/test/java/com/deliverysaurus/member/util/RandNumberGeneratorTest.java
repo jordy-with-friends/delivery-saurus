@@ -13,7 +13,7 @@ class RandNumberGeneratorTest {
         // given
         // when
         // then
-        assertThat(RandNumberGenerator.MIN_NUMBER).isEqualTo(10000);
-        assertThat(RandNumberGenerator.MAX_NUMBER).isEqualTo(99999);
+        assertThat(RandNumberGenerator.MIN_NUMBER).isEqualTo(100000);
+        assertThat(RandNumberGenerator.MAX_NUMBER).isEqualTo(999999);
     }
 }

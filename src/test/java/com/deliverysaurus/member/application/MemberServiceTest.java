@@ -68,7 +68,6 @@ class MemberServiceTest {
         );
 
         // when
-        when(memberRepository.save(any())).thenReturn(member);
         Member actual = memberService.addMember(memberDto);
 
         // then
