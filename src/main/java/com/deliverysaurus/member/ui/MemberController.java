@@ -25,9 +25,9 @@ public class MemberController {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(value = "/members")
     @ResponseBody
-    public ResponseEntity<ResponseBody> addMember(MemberDto memberDto) {
-        memberService.addMember(memberDto);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<Long> addMember(MemberDto memberDto) {
+        Member member = memberService.addMember(memberDto);
+        return ResponseEntity.ok().body(member.getId());
     }
 
     @ResponseStatus(HttpStatus.OK)
