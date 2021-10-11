@@ -34,7 +34,7 @@ public class MemberController {
     @PostMapping(value = "/members/authorization")
     @ResponseBody
     public ResponseEntity<ResponseBody> authEmail(EmailAuthDto emailAuthDto) {
-        Member member = memberService.authEmail(emailAuthDto.getAuthNumber());
+        Member member = memberService.authEmail(emailAuthDto.getMemberId(), emailAuthDto.getAuthNumber());
         return ResponseEntity.created(URI.create("/members/" + member.getId())).build();
     }
 }

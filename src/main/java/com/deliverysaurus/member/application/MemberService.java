@@ -2,8 +2,8 @@ package com.deliverysaurus.member.application;
 
 import java.time.LocalDateTime;
 
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cache.ehcache.EhCacheCacheManager;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.ehcache.EhCacheCache;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -13,10 +13,10 @@ import com.deliverysaurus.member.domain.Age;
 import com.deliverysaurus.member.domain.Email;
 import com.deliverysaurus.member.domain.Gender;
 import com.deliverysaurus.member.domain.Member;
+import com.deliverysaurus.member.domain.MemberStatus;
 import com.deliverysaurus.member.domain.Name;
 import com.deliverysaurus.member.domain.Nickname;
 import com.deliverysaurus.member.domain.Rank;
-import com.deliverysaurus.member.domain.MemberStatus;
 import com.deliverysaurus.member.domain.Tel;
 import com.deliverysaurus.member.dto.MemberDto;
 import com.deliverysaurus.member.repository.EmailRepository;
@@ -57,13 +57,12 @@ public class MemberService {
         return member;
     }
 
-    public Member authEmail(Long authNumber) {
-        // 이메일 인증 번호를 조회
-        // authNumber와 같은지 비교
+    //이메일 인증의 번호와 같은지 체크
+    public Member authEmail(Long memberId, Long authNumber) {
         return null;
     }
 
-    @Cacheable(value = "emailAuth", key = "#member.nickname")
+    @CachePut(cacheNames = "emailAuthNum", key = "#member.id")
     public int authCacheSave(Member member) {
         return RandNumberGenerator.generate();
     }

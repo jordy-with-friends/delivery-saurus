@@ -6,5 +6,6 @@ import lombok.Getter;
 @Getter
 @Builder
 public class EmailAuthDto {
+    private Long memberId;
     private Long authNumber;
 }
