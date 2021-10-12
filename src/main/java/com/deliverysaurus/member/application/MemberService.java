@@ -58,6 +58,7 @@ public class MemberService {
     }
 
     //이메일 인증의 번호와 같은지 체크
+    //TODO 읽기를 어떻게 해결할지
     public Member authEmail(Long memberId, Long authNumber) {
         return null;
     }
