@@ -1,15 +1,25 @@
-package com.deliverysaurus.common.encryption.aes;
+package com.deliverysaurus.config.aes;
+
+import com.deliverysaurus.config.EncryptionStrategy;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
-public class AES256 {
+@Component
+public class AES256 implements EncryptionStrategy {
 
-    private String algorithm = "AES/CBC/PKCS5Padding";
-    private String key = "01234567890123456789012345678901";
-    private String iv = "1234512345123456";
+    @Value("${custom.algorithm}")
+    private String algorithm;
+
+    @Value("${custom.key}")
+    private String key;
+
+    @Value("${custom.iv}")
+    private String iv;
 
     public String encrypt(String text) throws Exception {
         Cipher cipher = Cipher.getInstance(algorithm);
@@ -30,5 +40,9 @@ public class AES256 {
         byte[] decoded = Base64.getDecoder().decode(cipherText);
         byte[] bytes = cipher.doFinal(decoded);
         return new String(bytes, "UTF-8");
+    }
+
+    public boolean isMatch(String text, String hashed) throws Exception {
+        return text.equals(decrypt(hashed));
     }
 }
