@@ -1,4 +1,4 @@
-package com.deliverysaurus.domain;
+package com.deliverysaurus.member.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -6,24 +6,25 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class NameTest {
+class AgeTest {
+
     @DisplayName("생성")
     @Test
     void create() {
         // given
-        Name name = new Name("죠르디");
+        Age age = new Age(10);
         // when
         // then
-        assertThat(name).isNotNull();
+        assertThat(age).isNotNull();
     }
 
-    @DisplayName("생성 실패 - 너무 긴 이름")
+    @DisplayName("생성 실패 - 나이가 음수")
     @Test
-    void createFailed() {
+    void createFailedByValue() {
         // given
         // when
         // then
-        assertThatThrownBy(() -> new Name("죠르듸갓갓해"))
+        assertThatThrownBy(() -> new Age(-1))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

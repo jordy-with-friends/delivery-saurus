@@ -1,8 +1,8 @@
-package com.deliverysaurus.domain;
+package com.deliverysaurus.member.domain;
 
 import javax.persistence.Embeddable;
 
 @Embeddable
-public enum Status {
+public enum MemberStatus {
     AUTHORIZING, NORMAL, WITHDRAW
 }

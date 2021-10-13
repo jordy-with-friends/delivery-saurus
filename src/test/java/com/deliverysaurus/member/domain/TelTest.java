@@ -1,4 +1,4 @@
-package com.deliverysaurus.domain;
+package com.deliverysaurus.member.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -6,35 +6,37 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class NicknameTest {
+class TelTest {
 
     @DisplayName("생성")
     @Test
     void create() {
         // given
-        Nickname nickname = new Nickname("죠릐디");
+        Tel tel = new Tel("01015251525");
         // when
         // then
-        assertThat(nickname).isNotNull();
+        assertThat(tel).isNotNull();
     }
 
-    @DisplayName("생성 실패 - 너무 짧은 닉네임")
+    @DisplayName("생성 실패 - 9자 미만의 짧은 번호")
     @Test
-    void createFailedByMinLength() {
+    void createFailedByLength() {
         // given
         // when
         // then
-        assertThatThrownBy(() -> new Nickname("1"))
+        assertThatThrownBy(() -> new Tel(""))
+                .isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> new Tel("01015251"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("생성 실패 - 너무 긴 닉네임")
+    @DisplayName("생성 실패 - 번호가 아님")
     @Test
-    void createFailedByMaxLength() {
+    void createFailedByText() {
         // given
         // when
         // then
-        assertThatThrownBy(() -> new Nickname("죠르듸12334578901233457890"))
+        assertThatThrownBy(() -> new Tel("010abcdabcd"))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

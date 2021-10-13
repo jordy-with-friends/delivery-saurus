@@ -1,12 +1,13 @@
-package com.deliverysaurus.domain;
+package com.deliverysaurus.member.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @Embeddable
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Nickname {
     private static final int NICKNAME_MIN_LENGTH = 2;
     private static final int NICKNAME_MAX_LENGTH = 20;

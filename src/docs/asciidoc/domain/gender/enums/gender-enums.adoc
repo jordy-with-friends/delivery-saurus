@@ -1,0 +1,14 @@
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+공통된 성별 코드를 나타내는 API 입니다.
+
+== 정리
+include::{snippets}/domain/gender/enums/response-fields.adoc[]]

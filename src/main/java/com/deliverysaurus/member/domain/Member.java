@@ -1,4 +1,4 @@
-package com.deliverysaurus.domain;
+package com.deliverysaurus.member.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -10,11 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "member")
-@NoArgsConstructor
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
 
     @Id
@@ -27,11 +30,9 @@ public class Member {
     @Embedded
     private Nickname nickname;
 
-    private String email;
-
     @Embedded
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private MemberStatus status;
 
     @Embedded
     @Enumerated(EnumType.STRING)
@@ -40,29 +41,28 @@ public class Member {
     @Column(length = 5)
     private String zipCode;
 
-    private String address;
+    @Embedded
+    private Address address;
 
-    private String addressDetail;
-
-    private String tel;
+    @Embedded
+    private Tel tel;
 
     @Embedded
     private Gender gender;
 
-    private int age;
+    @Embedded
+    private Age age;
 
     @Column(length = 20)
     private String password;
 
-    public Member(Name name, Nickname nickname, String email, Status status, Rank rank, String zipCode, String address, String addressDetail, String tel, Gender gender, int age, String password) {
+    public Member(Name name, Nickname nickname, MemberStatus status, Rank rank, String zipCode, Address address, Tel tel, Gender gender, Age age, String password) {
         this.name = name;
         this.nickname = nickname;
-        this.email = email;
         this.status = status;
         this.rank = rank;
         this.zipCode = zipCode;
         this.address = address;
-        this.addressDetail = addressDetail;
         this.tel = tel;
         this.gender = gender;
         this.age = age;
