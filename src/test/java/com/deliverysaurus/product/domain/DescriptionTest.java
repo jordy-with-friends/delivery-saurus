@@ -6,19 +6,19 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.deliverysaurus.product.domain.Name.MAX_LENGTH;
-import static com.deliverysaurus.product.domain.Name.MIN_LENGTH;
+import static com.deliverysaurus.product.domain.Description.MAX_LENGTH;
+import static com.deliverysaurus.product.domain.Description.MIN_LENGTH;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
-@DisplayName("Name in Product Context Test")
-class NameTest {
+@DisplayName("Description Test")
+class DescriptionTest {
 
     @MethodSource("methodSource_constructor_성공")
-    @DisplayName("Name, constructor, 성공")
+    @DisplayName("Description, constructor, 성공")
     @ParameterizedTest
-    void constructor_성공(String givenName) {
-        assertDoesNotThrow(() -> new Name(givenName));
+    void constructor_성공(String givenDescription) {
+        assertDoesNotThrow(() -> new Description(givenDescription));
     }
 
     static Stream<String> methodSource_constructor_성공() {
@@ -26,10 +26,10 @@ class NameTest {
     }
 
     @MethodSource("methodSource_constructor_예외_illegalLength")
-    @DisplayName("Name, constructor, 예외, illegalLength")
+    @DisplayName("Description, constructor, 예외, illegalLength")
     @ParameterizedTest
-    void constructor_예외_illegalLength(String givenName) {
-        assertThatThrownBy(() -> new Name(givenName))
+    void constructor_예외_illegalLength(String givenDescription) {
+        assertThatThrownBy(() -> new Description(givenDescription))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
