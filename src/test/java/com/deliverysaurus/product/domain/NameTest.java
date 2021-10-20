@@ -1,6 +1,7 @@
 package com.deliverysaurus.product.domain;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -8,6 +9,7 @@ import java.util.stream.Stream;
 
 import static com.deliverysaurus.product.domain.Name.MAX_LENGTH;
 import static com.deliverysaurus.product.domain.Name.MIN_LENGTH;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
@@ -35,5 +37,11 @@ class NameTest {
 
     static Stream<String> methodSource_constructor_예외_illegalLength() {
         return Stream.of("", "a".repeat(MAX_LENGTH + 1));
+    }
+
+    @Test
+    void equals_케이스별() {
+        assertThat(new Name("죠르디")).isEqualTo(new Name("죠르디"));
+        assertThat(new Name("죠르디")).isNotEqualTo(new Name("스카피"));
     }
 }
