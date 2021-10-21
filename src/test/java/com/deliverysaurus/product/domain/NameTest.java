@@ -39,6 +39,7 @@ class NameTest {
         return Stream.of("", "a".repeat(MAX_LENGTH + 1));
     }
 
+    @DisplayName("equals, 케이스 별")
     @Test
     void equals_케이스별() {
         assertThat(new Name("죠르디")).isEqualTo(new Name("죠르디"));

@@ -22,6 +22,7 @@ class OptionTest {
         assertDoesNotThrow(() -> new Option(givenName, givenAdditionalPrice));
     }
 
+    @DisplayName("equals, 케이스 별")
     @Test
     void equals_케이스별() {
         assertThat(new Option(new Name("코카콜라 선택"), new Price(0)))

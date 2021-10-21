@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 class DescriptionTest {
 
     @MethodSource("methodSource_constructor_성공")
-    @DisplayName("Description, constructor, 성공")
+    @DisplayName("constructor, 성공")
     @ParameterizedTest
     void constructor_성공(String givenDescription) {
         assertDoesNotThrow(() -> new Description(givenDescription));
@@ -28,7 +28,7 @@ class DescriptionTest {
     }
 
     @MethodSource("methodSource_constructor_예외_illegalLength")
-    @DisplayName("Description, constructor, 예외, illegalLength")
+    @DisplayName("constructor, 예외, illegalLength")
     @ParameterizedTest
     void constructor_예외_illegalLength(String givenDescription) {
         assertThatThrownBy(() -> new Description(givenDescription))
@@ -39,6 +39,7 @@ class DescriptionTest {
         return Stream.of("", "a".repeat(MAX_LENGTH + 1));
     }
 
+    @DisplayName("equals, 케이스 별")
     @Test
     void equals_케이스별() {
         assertThat(new Description("죠르디")).isEqualTo(new Description("죠르디"));

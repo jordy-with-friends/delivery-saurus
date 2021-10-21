@@ -18,8 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 @DisplayName("OptionGroup Test")
 class OptionGroupTest {
 
-
-
     @DisplayName("OptionGroup, constructor, 성공")
     @Test
     void constructor_성공() {
@@ -45,6 +43,7 @@ class OptionGroupTest {
                 Set.of(new Option(new Name("코카콜라 선택"), new Price(0))));
     }
 
+    @DisplayName("equals, 케이스 별")
     @Test
     void equals_케이스별() {
         assertThat(new OptionGroup(new Name("음료 변경"), MUST_HAVE, Set.of(
