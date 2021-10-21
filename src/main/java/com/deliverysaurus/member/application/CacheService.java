@@ -20,7 +20,7 @@ public class CacheService {
         return RandNumberGenerator.generate();
     }
 
-    public void checkAuthNum(int authNumber, int emailAuthNumber) {
+    public void checkAuthNumber(int authNumber, int emailAuthNumber) {
         if (authNumber != emailAuthNumber) {
             throw new RuntimeException("인증 번호가 서로 다릅니다.");
         }

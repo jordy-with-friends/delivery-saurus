@@ -36,7 +36,7 @@ public class MemberController {
     @PostMapping(value = "/members/authorization")
     public ResponseEntity<Long> authEmail(EmailAuthDto emailAuthDto) {
         int emailAuthNumber = cacheService.getEmailAuthNumber(emailAuthDto.getMemberId());
-        cacheService.checkAuthNum(emailAuthDto.getAuthNumber(), emailAuthNumber);
+        cacheService.checkAuthNumber(emailAuthDto.getAuthNumber(), emailAuthNumber);
         return ResponseEntity.ok().body(emailAuthDto.getMemberId());
     }
 }

@@ -20,7 +20,7 @@ class CacheServiceTest {
         // given
         // when
         // then
-        cacheService.checkAuthNum(111, 111);
+        cacheService.checkAuthNumber(111, 111);
     }
 
     @DisplayName("인증번호비교실패")
@@ -29,7 +29,7 @@ class CacheServiceTest {
         // given
         // when
         // then
-        assertThatThrownBy(() -> cacheService.checkAuthNum(111, 222))
+        assertThatThrownBy(() -> cacheService.checkAuthNumber(111, 222))
                 .isInstanceOf(RuntimeException.class);
     }
 }
