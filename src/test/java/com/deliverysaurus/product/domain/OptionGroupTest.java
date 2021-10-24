@@ -46,22 +46,27 @@ class OptionGroupTest {
     @DisplayName("equals, 케이스 별")
     @Test
     void equals_케이스별() {
-        assertThat(new OptionGroup(new Name("음료 변경"), MUST_HAVE, Set.of(
+        // given
+        OptionGroup optionGroup_음료_변경1 = new OptionGroup(new Name("음료 변경"), MUST_HAVE, Set.of(
                 new Option(new Name("코카콜라 선택"), new Price(0)),
                 new Option(new Name("스프라이트 변경"), new Price(0)),
-                new Option(new Name("제로 콜라 변경"), new Price(0)))))
-                .isEqualTo(new OptionGroup(new Name("음료 변경"), MUST_HAVE, Set.of(
-                        new Option(new Name("코카콜라 선택"), new Price(0)),
-                        new Option(new Name("스프라이트 변경"), new Price(0)),
-                        new Option(new Name("제로 콜라 변경"), new Price(0)))));
+                new Option(new Name("제로 콜라 변경"), new Price(0))));
 
-        assertThat(new OptionGroup(new Name("음료 변경"), MUST_HAVE, Set.of(
+        OptionGroup optionGroup_음료_변경2 = new OptionGroup(new Name("음료 변경"), MUST_HAVE, Set.of(
                 new Option(new Name("코카콜라 선택"), new Price(0)),
                 new Option(new Name("스프라이트 변경"), new Price(0)),
-                new Option(new Name("제로 콜라 변경"), new Price(0)))))
-                .isNotEqualTo(new OptionGroup(new Name("사이드메뉴 변경"), MUST_HAVE, Set.of(
-                        new Option(new Name("감자튀김 선택"), new Price(0)),
-                        new Option(new Name("웨지감자 변경"), new Price(300)),
-                        new Option(new Name("아이스크림 변경"), new Price(300)))));
+                new Option(new Name("제로 콜라 변경"), new Price(0))));
+
+        OptionGroup optionGroup_사이드메뉴_변경 = new OptionGroup(new Name("사이드메뉴 변경"), MUST_HAVE, Set.of(
+                new Option(new Name("감자튀김 선택"), new Price(0)),
+                new Option(new Name("웨지감자 변경"), new Price(300)),
+                new Option(new Name("아이스크림 변경"), new Price(300))));
+
+        // when, then
+        assertThat(optionGroup_음료_변경1)
+                .isEqualTo(optionGroup_음료_변경2);
+
+        assertThat(optionGroup_음료_변경1)
+                .isNotEqualTo(optionGroup_사이드메뉴_변경);
     }
 }
