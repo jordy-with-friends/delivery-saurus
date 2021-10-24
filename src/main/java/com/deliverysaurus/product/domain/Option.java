@@ -3,7 +3,6 @@ package com.deliverysaurus.product.domain;
 import com.deliverysaurus.domain.BaseEntity;
 import com.deliverysaurus.domain.Price;
 import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.AttributeOverride;
@@ -14,7 +13,6 @@ import java.util.Objects;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-
 public class Option extends BaseEntity {
     @Embedded
     private Name name;

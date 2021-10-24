@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -62,5 +63,19 @@ public class ProductOptionGroup extends BaseEntity {
             throw new IllegalArgumentException("존재하지 않는 옵션 그룹 입니다.");
         }
         this.optionGroups.removeAll(optionGroups);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        ProductOptionGroup that = (ProductOptionGroup) o;
+        return Objects.equals(product, that.product) && Objects.equals(optionGroups, that.optionGroups);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), product, optionGroups);
     }
 }

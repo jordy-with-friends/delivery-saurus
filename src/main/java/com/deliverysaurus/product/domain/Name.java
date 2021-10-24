@@ -17,15 +17,15 @@ public class Name {
     public static final int MAX_LENGTH = 40;
 
     @Column(name = "name")
-    private String name;
+    private String value;
 
-    public Name(String name) {
-        validate(name);
-        this.name = name;
+    public Name(String value) {
+        validate(value);
+        this.value = value;
     }
 
-    private void validate(String name) {
-        if (name.length() < MIN_LENGTH || name.length() > MAX_LENGTH) {
+    private void validate(String value) {
+        if (value.length() < MIN_LENGTH || value.length() > MAX_LENGTH) {
             throw new IllegalArgumentException(format("이름의 길이가 %d~%d가 아닙니다."
                     , MIN_LENGTH, MAX_LENGTH));
         }
@@ -35,12 +35,12 @@ public class Name {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Name name1 = (Name) o;
-        return Objects.equals(name, name1.name);
+        Name name = (Name) o;
+        return Objects.equals(value, name.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(value);
     }
 }

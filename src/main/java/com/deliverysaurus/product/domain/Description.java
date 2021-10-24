@@ -18,15 +18,15 @@ public class Description {
     public static final int MAX_LENGTH = 150;
 
     @Column(name = "description")
-    private String description;
+    private String value;
 
-    public Description(String description) {
-        validate(description);
-        this.description = description;
+    public Description(String value) {
+        validate(value);
+        this.value = value;
     }
 
-    private void validate(String description) {
-        if (description.length() < MIN_LENGTH || description.length() > MAX_LENGTH) {
+    private void validate(String value) {
+        if (value.length() < MIN_LENGTH || value.length() > MAX_LENGTH) {
             throw new IllegalArgumentException(format("설명의 길이가 %d~%d가 아닙니다."
                     , MIN_LENGTH, MAX_LENGTH));
         }
@@ -37,11 +37,11 @@ public class Description {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         Description that = (Description) o;
-        return Objects.equals(description, that.description);
+        return Objects.equals(value, that.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(description);
+        return Objects.hash(value);
     }
 }
