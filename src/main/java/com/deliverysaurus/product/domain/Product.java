@@ -53,7 +53,7 @@ public class Product extends BaseEntity {
         productOptionGroup.removeOptionGroups(optionGroups);
     }
 
-    public void initializeProductOptionGroupLazily() {
+    private void initializeProductOptionGroupLazily() {
         if(productOptionGroup == null) {
             productOptionGroup = new ProductOptionGroup();
         }
