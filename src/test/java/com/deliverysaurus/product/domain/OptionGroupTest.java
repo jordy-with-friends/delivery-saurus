@@ -30,17 +30,15 @@ class OptionGroupTest {
         assertDoesNotThrow(() -> new OptionGroup(new Name("음료 변경"), MUST_HAVE, Set.of(givenOption1, givenOption2, givenOption3)));
     }
 
-    @MethodSource("methodSource_constructor_예외_optionsLength")
     @DisplayName("OptionGroup, constructor, 예외_optionsLength")
-    @ParameterizedTest
-    void constructor_예외_optionsLength(Set<Option> givenOptions) {
-        assertThatThrownBy(() -> new OptionGroup(new Name("음료 변경"), MUST_HAVE, givenOptions))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
+    @Test
+    void constructor_예외_optionsLength() {
+        // given
+        Name givenName = new Name("음료 변경");
+        Set<Option> givenOptions = Set.of(new Option(new Name("코카콜라 선택"), new Price(0)));
 
-    static Stream<Set<Option>> methodSource_constructor_예외_optionsLength() {
-        return Stream.of(Collections.emptySet(),
-                Set.of(new Option(new Name("코카콜라 선택"), new Price(0))));
+        assertThatThrownBy(() -> new OptionGroup(givenName, MUST_HAVE, givenOptions))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 
     @DisplayName("equals, 케이스 별")
@@ -64,9 +62,7 @@ class OptionGroupTest {
 
         // when, then
         assertThat(optionGroup_음료_변경1)
-                .isEqualTo(optionGroup_음료_변경2);
-
-        assertThat(optionGroup_음료_변경1)
+                .isEqualTo(optionGroup_음료_변경2)
                 .isNotEqualTo(optionGroup_사이드메뉴_변경);
     }
 }
